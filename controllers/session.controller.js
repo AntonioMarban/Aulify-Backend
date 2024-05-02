@@ -49,11 +49,6 @@ const getSessionCountLast7Days = (req, res) => {
   `;
   pool.query(sql, (err, results, fields) => {
     if (err) res.json(err);
-    {
-      console.error("Error fetching session count for last 7 days:", err);
-      res.status(500).json({ error: "Internal server error" });
-      return;
-    }
     res.json(results);
   });
 };
